@@ -90,3 +90,8 @@ var questions = [
     console.log("SCORE:", score);
     console.log();  
   }
+
+  for(var i = 0; i < questions.length; i++){
+    var current = questions[i];
+    play(current.question, current.a, current.b, current.c, current.d, current.answer, i);
+  }

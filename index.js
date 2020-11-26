@@ -65,33 +65,39 @@ var questions = [
     },
   ]
 
-  
-  function play(question, a, b, c, d, answer, index){
-    console.log(chalk.underline.bgBlue("Q"+(index+1)+" "+question));
-    console.log(chalk.yellow("(a) "+a));
-    console.log(chalk.yellow("(b) "+b));
-    console.log(chalk.yellow("(c) "+c));
-    console.log(chalk.yellow("(d) "+d));
-    
-    var answerByUser = readlineSync.question(chalk.bgRed.underline.bold("Select from a, b, c, d: "));
-  
-    if(!(answerByUser === "a" || answerByUser === "b" || answerByUser === "c" ||answerByUser === "d")){
-      score = score-15;
-      console.log(chalk.redBright("Invalid input"));
-    }
-    else if(answerByUser === answer){
-      score = score+10;
-      console.log(chalk.green("CORRECT :D"));
-    }
-    else{
-      score = score-5;
-      console.log(chalk.red("WRONG ANSWER :/"));
-    }
-    console.log("SCORE:", score);
-    console.log();  
-  }
+
+function play(question, a, b, c, d, answer, index){
+console.log(chalk.underline.bgBlue("Q"+(index+1)+" "+question));
+console.log(chalk.yellow("(a) "+a));
+console.log(chalk.yellow("(b) "+b));
+console.log(chalk.yellow("(c) "+c));
+console.log(chalk.yellow("(d) "+d));
+
+var answerByUser = readlineSync.question(chalk.bgRed.underline.bold("Select from a, b, c, d: "));
+
+if(!(answerByUser === "a" || answerByUser === "b" || answerByUser === "c" ||answerByUser === "d")){
+    score = score-15;
+    console.log(chalk.redBright("Invalid input"));
+}
+else if(answerByUser === answer){
+    score = score+10;
+    console.log(chalk.green("CORRECT :D"));
+}
+else{
+    score = score-5;
+    console.log(chalk.red("WRONG ANSWER :/"));
+}
+console.log("SCORE:", score);
+console.log();  
+}
 
   for(var i = 0; i < questions.length; i++){
     var current = questions[i];
     play(current.question, current.a, current.b, current.c, current.d, current.answer, i);
   }
+
+console.log();
+
+console.log(chalk.bgCyan("Your Final score is:", score));
+
+console.log();

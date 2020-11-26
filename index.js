@@ -101,3 +101,59 @@ console.log();
 console.log(chalk.bgCyan("Your Final score is:", score));
 
 console.log();
+
+
+var leaderBoard = [
+    {
+      name: "Rachit Jain",
+      score: 50
+    },
+    {
+      name: "Akshay Saini",
+      score: 50
+    },
+    {
+      name: "Rohan Gupta",
+      score: 35
+    },
+    {
+      name: "Tanay Pratap",
+      score: 35
+    },
+    {
+      name: "Love Babbar",
+      score: 20
+    }
+  ];
+  
+  
+  console.log(chalk.underline.bgRed("------------LEADERBOARD--------------"));
+  console.log();
+  
+  for(var i = 0; i < leaderBoard.length; i++){
+    var current = leaderBoard[i];
+    console.log((i+1)+". "+current.name+" -> "+current.score);
+  }
+  
+  var shouldBeOnLeaderboard = false;
+  
+  for(var i = 0; i < leaderBoard.length; i++){
+    var currentScore = leaderBoard[i].score;
+    if(score > currentScore){
+      shouldBeOnLeaderboard = true;
+      break;
+    }
+  }
+  
+  
+  console.log();
+  
+  
+  if(shouldBeOnLeaderboard === true){
+    console.log(chalk.cyan("Congrats! You deserve a place in leaderBoard, send me a ss at twitter - @gupta1rohan and i'll update the leaderboard"));
+  }
+  else{
+    console.log(chalk.redBright("Better luck next time"));
+  }
+  
+  
